@@ -1,0 +1,34 @@
+{
+  "displayName": "Prometheus - Memcached - No Connections",
+  "documentation": {
+    "content": "if `memcached_current_connections/gauge` reaches `0` that should be cause for concern because memcached should always have at least 1 connection.",
+    "mimeType": "text/markdown"
+  },
+  "userLabels": {},
+  "conditions": [
+    {
+      "displayName": "Prometheus Target - prometheus/memcached_current_connections/gauge",
+      "conditionThreshold": {
+        "aggregations": [
+          {
+            "alignmentPeriod": "300s",
+            "perSeriesAligner": "ALIGN_MEAN"
+          }
+        ],
+        "comparison": "COMPARISON_LT",
+        "duration": "0s",
+        "filter": "resource.type = \"prometheus_target\" AND metric.type = \"prometheus.googleapis.com/memcached_current_connections/gauge\"",
+        "thresholdValue": 1,
+        "trigger": {
+          "count": 1
+        }
+      }
+    }
+  ],
+  "alertStrategy": {
+    "autoClose": "604800s"
+  },
+  "combiner": "OR",
+  "enabled": true,
+  "notificationChannels": []
+}
