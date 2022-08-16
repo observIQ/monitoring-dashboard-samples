@@ -1,0 +1,34 @@
+{
+  "displayName": "Prometheus - MySQL - high slow queries rate",
+  "documentation": {
+    "content": "If the number of slow queries becomes high, it indicates performance issues. You may check the MySQL slow query logs to investigate the cause.",
+    "mimeType": "text/markdown"
+  },
+  "userLabels": {},
+  "conditions": [
+    {
+      "displayName": "Prometheus Target - prometheus/mysql_global_status_slow_queries/unknown:counter",
+      "conditionThreshold": {
+        "aggregations": [
+          {
+            "alignmentPeriod": "300s",
+            "perSeriesAligner": "ALIGN_RATE"
+          }
+        ],
+        "comparison": "COMPARISON_GT",
+        "duration": "0s",
+        "filter": "resource.type = \"prometheus_target\" AND metric.type = \"prometheus.googleapis.com/mysql_global_status_slow_queries/unknown:counter\"",
+        "thresholdValue": 0.5,
+        "trigger": {
+          "count": 1
+        }
+      }
+    }
+  ],
+  "alertStrategy": {
+    "autoClose": "604800s"
+  },
+  "combiner": "OR",
+  "enabled": true,
+  "notificationChannels": []
+}
