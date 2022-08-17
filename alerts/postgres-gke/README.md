@@ -27,6 +27,6 @@ The ID of the notification channel to be notified.
 
 ```json
     "notificationChannels": [
-        "projects/project-id/notificationChannels/1234567
+        "projects/project-id/notificationChannels/1234567"
     ]
 ```
