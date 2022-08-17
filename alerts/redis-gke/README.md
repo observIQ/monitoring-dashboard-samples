@@ -24,7 +24,7 @@ i.e.
     }
 ```
 
-#### Notification Channels
+### Notification Channels
 
 The ID of the notification channel to be notified.
 
