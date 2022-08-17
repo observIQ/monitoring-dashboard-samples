@@ -9,16 +9,28 @@ When red cluster status duration is exceeds 1 minute, at least one primary shard
 ## High JVM memory heap usage alert
 When the JVM heap ratio of heap used over max heap exceeds a threshold, then application's performance may start to degrade.
 
-### Notification Channels
-For all alerts, a notification channel needs to be set up or the alert will fire silently.
+### Creating notification Channels and User Labels
+
+Whether these alert policies are being used as standalones or base templates for a deployment strategy like terraform, one thing that should be utilized is notification channels and user labels.
 
 ### User Labels
-User labels can be used for these policies by modifying the userLabels fields of the policies. i.e.
+
+Supplying user labels could give extra identification information about the firing alert:
+
+i.e.
 
 ```json
-{ 
-  "userLabels": {
-    "datacenter": "central"
-  }
-}
+    "userLabels": {
+        "datacenter": "central"
+    }
+```
+
+### Notification Channels
+
+The ID of the notification channel to be notified.
+
+```json
+    "notificationChannels": [
+        "projects/project-id/notificationChannels/1234567"
+    ]
 ```
