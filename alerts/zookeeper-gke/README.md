@@ -1,8 +1,8 @@
-# Alerts for Zookeeper in the Ops Agent
+# Alerts for Zookeeper in GKE
 
 ## High Average Latency
 
-If `avg_latency` is 100ms or higher, it shows that the server can't keep up with demand and performance improvements should be sought after.
+If `prometheus.googleapis.com/avg_latency/gauge` is 100ms or higher, it shows that the server can't keep up with demand and performance improvements should be sought after.
 
 ## High fsync Duration
 
