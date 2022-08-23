@@ -1,6 +1,6 @@
 # Alerts for MongoDB in GKE
 
-## Connections Near Max
+## Connections near max alert
 
 If connections are approaching the limit, then new connections cannot be established. By default the mongod rejects connections at around 52000. Applications may stop functioning if connections cannot be established.
 
