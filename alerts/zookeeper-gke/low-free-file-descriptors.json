@@ -1,7 +1,7 @@
 {
-  "displayName": "Zookeeper - Low Free File Descriptors",
+  "displayName": "Zookeeper - Prometheus - Low Free File Descriptors",
   "documentation": {
-    "content": "If `prometheus.googleapis.com/open_file_descriptor_count/gauge` is about to hit `prometheus.googleapis.com/max_file_descriptor_count/gauge` zookeeper will not be able to handle any new requests and will fail to connect new clients.",
+    "content": "If the amount of open file descriptors is about to hit the maximum amount of open file descriptors, Zookeeper will not be able to handle any new requests and will fail to connect new clients.",
     "mimeType": "text/markdown"
   },
   "userLabels": {},

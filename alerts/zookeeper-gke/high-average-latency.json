@@ -1,7 +1,7 @@
 {
-  "displayName": "Prometheus - Zookeeper - High Average Latency",
+  "displayName": "Zookeeper - Prometheus - High Average Latency",
   "documentation": {
-    "content": "If `prometheus.googleapis.com/avg_latency/gauge` is 100ms or higher, it shows that the server can't keep up with demand.",
+    "content": "If Zookeeper's average response latency is 100ms or higher, it shows that the server can't keep up with demand.",
     "mimeType": "text/markdown"
   },
   "userLabels": {},

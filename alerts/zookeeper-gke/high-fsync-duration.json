@@ -1,7 +1,7 @@
 {
-  "displayName": "Prometheus - Zookeeper - High fsync Duration",
+  "displayName": "Zookeeper - Prometheus - High Fsync Duration",
   "documentation": {
-    "content": "If the fsync duration is above an amount dependent on your environment it could show there is an issue writing to files.",
+    "content": "If the fsync duration is above an amount dependent on your environment (100ms by default), it could show there is an issue writing to files.",
     "mimeType": "text/markdown"
   },
   "userLabels": {},

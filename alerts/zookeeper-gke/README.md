@@ -1,16 +1,16 @@
 # Alerts for Zookeeper in GKE
 
-## High Average Latency
+## High average latency alert
 
-If `prometheus.googleapis.com/avg_latency/gauge` is 100ms or higher, it shows that the server can't keep up with demand.
+If Zookeeper's average response latency is 100ms or higher, it shows that the server can't keep up with demand.
 
-## High fsync Duration
+## High fsync duration alert
 
-If the fsync duration is above an amount dependent on your environment it could show there is an issue writing to files.
+If the fsync duration is above an amount dependent on your environment (100ms by default), it could show there is an issue writing to files.
 
-## Low Open File Descriptors
+## Low open file descriptors alert
 
-If `prometheus.googleapis.com/open_file_descriptor_count/gauge` is about to hit `prometheus.googleapis.com/max_file_descriptor_count/gauge` zookeeper will not be able to handle any new requests and will fail to connect new clients.
+If the amount of open file descriptors is about to hit the maximum amount of open file descriptors, Zookeeper will not be able to handle any new requests and will fail to connect new clients.
 
 ### Creating notification Channels and User Labels
 
