@@ -1,7 +1,7 @@
 {
-    "displayName": "Prometheus - Redis - Evicted Keys",
+    "displayName": "Redis - Prometheus - High Rate of Evicted Keys",
     "documentation": {
-      "content": "Under memory pressure, the system will evict keys to free up memory. This is an indicator of memory pressure of the redis configuration. This alert fires if at least 1 keys is evicted every second.",
+      "content": "Under memory pressure, the system will evict keys to free up memory. This is an indicator of memory pressure due to the Redis or system configuration.",
       "mimeType": "text/markdown"
     },
     "userLabels": {},

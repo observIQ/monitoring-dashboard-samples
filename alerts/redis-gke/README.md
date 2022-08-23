@@ -1,12 +1,12 @@
 # Alerts for Redis in GKE
 
-## Memory Fragmentation Ratio < 1
+## Memory fragmentation ratio < 1 alert
 
-A fragmentation ratio less than 1.0 means that Redis requires more memory than is available on the system and so it has resorted to using swap memory resources.
+A fragmentation ratio less than 1.0 means that Redis requires more memory than is available on the system and so it has resorted to using swap memory resources, reducing performance.
 
-## Keys Getting Evicted
+## High rate of evicted keys alert
 
-Under memory pressure, the system will evict keys to free up memory. This is an indicator of memory pressure of the redis configuration. This alert fires if at least 1 keys is evicted every second.
+Under memory pressure, the system will evict keys to free up memory. This is an indicator of memory pressure due to the Redis or system configuration. By default, this alert fires if at least 1 key is evicted every second.
 
 ### Creating notification Channels and User Labels
 
