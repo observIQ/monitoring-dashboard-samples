@@ -1,7 +1,7 @@
 {
-    "displayName": "Prometheus - Kafka - change in number of ISRs",
+    "displayName": "Kafka - Prometheus - Change in Number of ISRs",
     "documentation": {
-      "content": "In sync replicas are required for proper failover. The number of in sync replicas should be static, unless the broker cluster is expanding or partitions are removed. If the number of in sync replicas deviates without the broker cluster being modified, you should investigate to maintain high availability.",
+      "content": "In sync replicas (ISRs) are required for proper failover. The number of in sync replicas should be static, unless the broker cluster is expanding or partitions are removed. If the number of in sync replicas deviates without the broker cluster being modified, you should investigate to maintain high availability.",
       "mimeType": "text/markdown"
     },
     "userLabels": {},

@@ -1,5 +1,5 @@
 {
-  "displayName": "Prometheus - Kafka - under replicated partitions alerts",
+  "displayName": "Kafka - Prometheus - Under Replicated Partitions",
   "documentation": {
     "content": "When there is an under replicated partition for an extended period of time (default is 1 minute), then the cluster is not healthy and cannot guarantee high availability.",
     "mimeType": "text/markdown"
