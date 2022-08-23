@@ -1,7 +1,7 @@
 {
-    "displayName": "Prometheus - Elasticsearch - High JVM memory usage (copy)",
+    "displayName": "Elasticsearch - Prometheus - High JVM Memory Usage",
     "documentation": {
-        "content": "When the JVM heap ratio of heap used over max heap exceeds a threshold, then application's performance may start to degrade.",
+        "content": "When the ratio of heap used to max heap becomes high, then application's performance may start to degrade.",
         "mimeType": "text/markdown"
     },
     "userLabels": {},

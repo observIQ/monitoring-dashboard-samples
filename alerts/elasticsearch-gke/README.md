@@ -1,13 +1,13 @@
 # Elasticsearch Alerts for GKE
 
 ## Yellow cluster status alert
-When yellow cluster status duration exceeds 5 minute, at least one replica shard is unallocated or missing.
+When the cluster has a "yellow" status, at least one primary shard is missing, and data is missing.
 
 ## Red cluster status alert
-When red cluster status duration is exceeds 1 minute, at least one primary shard is missing, and data is missing.
+When the cluster has a "red" status, at least one primary shard is missing, and data is missing.
 
 ## High JVM memory heap usage alert
-When the JVM heap ratio of heap used over max heap exceeds a threshold, then application's performance may start to degrade.
+When the ratio of heap used to max heap becomes high, then application's performance may start to degrade.
 
 ### Creating notification Channels and User Labels
 
