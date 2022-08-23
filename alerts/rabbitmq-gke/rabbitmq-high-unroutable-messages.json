@@ -1,7 +1,7 @@
 {
-  "displayName": "Prometheus - RabbitMQ - high unroutable messages",
+  "displayName": "RabbitMQ - Prometheus - High Unroutable Messages",
   "documentation": {
-    "content": "When the rate of unroutable messages is greater than a 0, that means consumers are not getting every message.",
+    "content": "When the unroutable message rate is greater than a threshold, the consumers are not getting every message.",
     "mimeType": "text/markdown"
   },
   "userLabels": {},

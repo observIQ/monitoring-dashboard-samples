@@ -1,7 +1,7 @@
 {
-  "displayName": "Prometheus - RabbitMQ - high unacknowledged messages",
+  "displayName": "RabbitMQ - Prometheus - High Unacknowledged Messages",
   "documentation": {
-    "content": "When the message unacknowledged rate is higher than a threshold, then errors or performance issues may arise.",
+    "content": "When the number of unacknowledged messages is higher than a threshold, it indicates that consumers may not be able to keep up processing the messages, or are otherwise not acknowledging the message after reading it.",
     "mimeType": "text/markdown"
   },
   "userLabels": {},

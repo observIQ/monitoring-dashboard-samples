@@ -1,7 +1,7 @@
 {
-  "displayName": "Prometheus - RabbitMQ - low delivered messages alert",
+  "displayName": "RabbitMQ - Prometheus - Low Delivered Messages",
   "documentation": {
-    "content": "When the rate of delivered messages is lower than a threshold, then there may be an issue with a producer or routing logic.",
+    "content": "When the rate of delivered messages is lower than a threshold, then there may be an issue with a producer or with routing logic.",
     "mimeType": "text/markdown"
   },
   "userLabels": {},
