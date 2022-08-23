@@ -1,13 +1,13 @@
 
 # Alerts for Memcached in GKE
 
-## High Evictions
+## High evictions alert
 
-if `memcached_items_evicted_total/counter` increases by 1 or more that shows that items are being evicted due to high memory usage and should be a cause for concern.
+If the number of evicted items increases by 1 or more that shows that items are being evicted due to high memory usage, which could indicate not enough memory, or too many objects being inserted.
 
-## No Connections
+## No connections alert
 
-if `memcached_current_connections/gauge` reaches 0 that should be cause for concern because memcached should always have at least 1 connection.
+If the number of connections reaches 0, there are no applications connected to Memcached, which may indicate a network issue between your application and Memcached.
 
 ### Creating notification Channels and User Labels
 
