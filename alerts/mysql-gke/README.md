@@ -1,6 +1,6 @@
 # MySQL Alerts for GKE
 
-## Connection Errors
+## Connection errors alert
 Connection errors mean a connection failed to be established. This indicates applications may be having trouble connecting to your MySQL database. See the `error` label on the time-series that triggers the alert for a more specific cause.
 
 
