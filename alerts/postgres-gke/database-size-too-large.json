@@ -1,5 +1,5 @@
 {
-    "displayName": "Prometheus - PostgreSQL - Database Size Too Large",
+    "displayName": "PostgreSQL - Prometheus - Database Size Too Large",
     "documentation": {
       "content": "If the database is growing larger than expected (100 GB by default), it may signal excess data being stored or excess records not being properly removed by an application.",
       "mimeType": "text/markdown"

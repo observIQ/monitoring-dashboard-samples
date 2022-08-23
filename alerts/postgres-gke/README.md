@@ -1,8 +1,7 @@
 # Alerts for PostgreSQL in GKE
 
-## Database Size Too Large
-If the database is growing larger than expected, it may signal excess data being stored or excess records not being properly removed by an application.
-By default, this alert triggers when the database's size exceeds 100 GB.
+## Database size too large alert
+If the database is growing larger than expected (100 GB by default), it may signal excess data being stored or excess records not being properly removed by an application.
 
 
 ### Creating notification Channels and User Labels
