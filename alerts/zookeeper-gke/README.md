@@ -2,7 +2,7 @@
 
 ## High Average Latency
 
-If `prometheus.googleapis.com/avg_latency/gauge` is 100ms or higher, it shows that the server can't keep up with demand and performance improvements should be sought after.
+If `prometheus.googleapis.com/avg_latency/gauge` is 100ms or higher, it shows that the server can't keep up with demand.
 
 ## High fsync Duration
 
