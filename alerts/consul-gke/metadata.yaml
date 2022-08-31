@@ -1,0 +1,9 @@
+alert_policy_templates:
+  - id: "long-gc-pause"
+    display_name: "Consul - Prometheus - Long GC Pause"
+    description: "When the total GC time exceeds 2 seconds per minute, Consul's performance may degrade due to excessive garbage collection times. This may indicate that Consul is running out of memory."
+    version: 1
+  - id: "unhealthy-cluster"
+    display_name: "Consul - Prometheus - Unhealthy Cluster"
+    description: "When this alert triggers, the local server cluster is considered unhealthy by autopilot. This could indicate a degradation of resources on the host, or could indicate failed leadership elections."
+    version: 1

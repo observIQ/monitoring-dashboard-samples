@@ -1,0 +1,34 @@
+{
+    "displayName": "Consul - Prometheus - Unhealthy Cluster",
+    "documentation": {
+      "content": "When this alert triggers, the local server cluster is considered unhealthy by autopilot. This could indicate a degradation of resources on the host, or could indicate failed leadership elections.",
+      "mimeType": "text/markdown"
+    },
+    "userLabels": {},
+    "conditions": [
+      {
+        "displayName": "Prometheus Target - prometheus/consul_autopilot_healthy/gauge",
+        "conditionThreshold": {
+          "aggregations": [
+            {
+              "alignmentPeriod": "300s",
+              "perSeriesAligner": "ALIGN_MIN"
+            }
+          ],
+          "comparison": "COMPARISON_LT",
+          "duration": "0s",
+          "filter": "resource.type = \"prometheus_target\" AND metric.type = \"prometheus.googleapis.com/consul_autopilot_healthy/gauge\"",
+          "thresholdValue": 1,
+          "trigger": {
+            "count": 1
+          }
+        }
+      }
+    ],
+    "alertStrategy": {
+      "autoClose": "604800s"
+    },
+    "combiner": "OR",
+    "enabled": false,
+    "notificationChannels": []
+  }
