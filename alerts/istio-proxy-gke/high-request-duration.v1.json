@@ -1,0 +1,35 @@
+{
+    "displayName": "Istio Proxy - Prometheus - High Request Duration",
+    "documentation": {
+        "content": "When the request duration is high, it indicates performance issues resulting in high latency for inbound requests.",
+        "mimeType": "text/markdown"
+    },
+    "userLabels": {},
+    "conditions": [
+        {
+            "displayName": "Prometheus Target - prometheus/istio_request_duration_milliseconds/histogram",
+            "conditionThreshold": {
+                "aggregations": [
+                    {
+                        "alignmentPeriod": "300s",
+                        "crossSeriesReducer": "REDUCE_MEAN",
+                        "perSeriesAligner": "ALIGN_DELTA"
+                    }
+                ],
+                "comparison": "COMPARISON_GT",
+                "duration": "0s",
+                "filter": "resource.type = \"prometheus_target\" AND metric.type = \"prometheus.googleapis.com/istio_request_duration_milliseconds/histogram\"",
+                "thresholdValue": 100,
+                "trigger": {
+                    "count": 1
+                }
+            }
+        }
+    ],
+    "alertStrategy": {
+        "autoClose": "604800s"
+    },
+    "combiner": "OR",
+    "enabled": true,
+    "notificationChannels": []
+}
