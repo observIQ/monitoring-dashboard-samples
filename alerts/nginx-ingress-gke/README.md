@@ -1,6 +1,6 @@
 # NGINX Ingress Controller Alerts for GKE
 
-## High connections dropped alert
+## Connections dropped alert
 The connections dropped value is derived from the connections accepted minus the connections handled. This value should be near 0. When this value is rising, it means you may have a resource saturation problem.
 
 ## High request rate alert
