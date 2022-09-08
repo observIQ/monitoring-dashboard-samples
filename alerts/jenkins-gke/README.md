@@ -1,11 +1,10 @@
 # Jenkins Alerts for GKE
 
 ## Health score below 1 alert
-If the Jenkins health score is below 1, then at least one health check has failed.
+If the Jenkins health score is below 1, then at least one health check has failed. To view which health checks have failed, see `${JENKINS_URL}/metrics/currentUser/healthcheck?pretty=true`.
 
 ## Plugin failure alert
-A plugin failure indicates that a plugin has failed to start. Usually, this can be resolved by explicitly disabling the failing plugin, or by resolving dependency issues with the plugin.
-
+A plugin failure indicates that a plugin has failed to start. Usually, this can be resolved by explicitly disabling the failing plugin, or by resolving dependency issues with the plugin. See the Jenkins logs to determine the exact cause of the plugin failure.
 
 ### Creating Notification Channels and User Labels
 
