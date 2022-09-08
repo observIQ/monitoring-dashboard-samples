@@ -5,6 +5,6 @@ alert_policy_templates:
     version: 1
   - id: "high-cpu-usage"
     display_name: "Kibana - Prometheus - High CPU Usage"
-    description: "This alert triggers when there is a high amount of CPU usage. High CPU usage indicates that Kibana is running out of computation resources, and performance may degrade."
+    description: "This alert triggers when there is a high amount of CPU usage. High CPU usage indicates that Kibana is running out of compute resources, and performance may degrade."
     version: 1
   
