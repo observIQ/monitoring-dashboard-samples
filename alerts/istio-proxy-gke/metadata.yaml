@@ -5,5 +5,5 @@ alert_policy_templates:
     version: 1
   - id: "high-request-duration"
     display_name: "Istio Proxy - Prometheus - High Request Duration"
-    description: "When the request duration is high, it indicates performance issues resulting in high latency for inbound requests."
+    description: "When the request duration is high, it indicates performance issues with deployed Envoy proxies, network issues, or slow application response times."
     version: 1
