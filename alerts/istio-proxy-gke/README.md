@@ -4,7 +4,7 @@
 When an endpoint is degraded, the endpoint can still receive traffic, but is de-prioritized. This indicates that a host may have performance issues that need to be remediated for the endpoint to be considered healthy again.
 
 ## High request duration alert
-When the request duration is high, it indicates performance issues resulting in high latency for inbound requests.
+When the request duration is high, it indicates performance issues with deployed Envoy proxies, network issues, or slow application response times.
 
 ### Creating Notification Channels and User Labels
 
