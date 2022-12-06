@@ -1,6 +1,24 @@
 {
   "category": "CUSTOM",
+  "dashboardFilters": [
+    {
+      "filterType": "RESOURCE_LABEL",
+      "labelKey": "cluster",
+      "templateVariable": "Cluster"
+    },
+    {
+      "filterType": "RESOURCE_LABEL",
+      "labelKey": "location",
+      "templateVariable": "Location"
+    },
+    {
+      "filterType": "RESOURCE_LABEL",
+      "labelKey": "namespace",
+      "templateVariable": "Namespace"
+    }
+  ],
   "displayName": "HBase Operations Prometheus Overview",
+  "labels": {},
   "mosaicLayout": {
     "columns": 12,
     "tiles": [
@@ -17,7 +35,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "hbase_RegionServer_Server_slowGetCount"
+                  "prometheusQuery": "hbase_RegionServer_Server_slowGetCount{${Cluster},${Location},${Namespace}}"
                 }
               }
             ],
@@ -45,7 +63,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "hbase_getTime_99th_percentile"
+                  "prometheusQuery": "hbase_getTime_99th_percentile{${Cluster},${Location},${Namespace}}"
                 }
               }
             ],
@@ -73,7 +91,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "rate(hbase_RegionServer_Server_slowAppendCount[5m])"
+                  "prometheusQuery": "rate(hbase_RegionServer_Server_slowAppendCount{${Cluster},${Location},${Namespace}}[5m])"
                 }
               }
             ],
@@ -101,7 +119,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "hbase_appendTime_99th_percentile"
+                  "prometheusQuery": "hbase_appendTime_99th_percentile{${Cluster},${Location},${Namespace}}"
                 }
               }
             ],
@@ -129,7 +147,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "rate(hbase_RegionServer_Server_slowDeleteCount[5m])"
+                  "prometheusQuery": "rate(hbase_RegionServer_Server_slowDeleteCount{${Cluster},${Location},${Namespace}}[5m])"
                 }
               }
             ],
@@ -157,7 +175,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "hbase_deleteTime_99th_percentile"
+                  "prometheusQuery": "hbase_deleteTime_99th_percentile{${Cluster},${Location},${Namespace}}"
                 }
               }
             ],
@@ -185,7 +203,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "rate(hbase_RegionServer_Server_slowPutCount[5m])"
+                  "prometheusQuery": "rate(hbase_RegionServer_Server_slowPutCount{${Cluster},${Location},${Namespace}}[5m])"
                 }
               }
             ],
@@ -213,7 +231,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "hbase_putTime_99th_percentile"
+                  "prometheusQuery": "hbase_putTime_99th_percentile{${Cluster},${Location},${Namespace}}"
                 }
               }
             ],
@@ -241,7 +259,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "rate(hbase_RegionServer_Server_slowIncrementCount[5m])"
+                  "prometheusQuery": "rate(hbase_RegionServer_Server_slowIncrementCount{${Cluster},${Location},${Namespace}}[5m])"
                 }
               }
             ],
@@ -269,7 +287,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "hbase_incrementTime_99th_percentile"
+                  "prometheusQuery": "hbase_incrementTime_99th_percentile{${Cluster},${Location},${Namespace}}"
                 }
               }
             ],
@@ -297,7 +315,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "hbase_RegionServer_Server_Replay_99th_percentile"
+                  "prometheusQuery": "hbase_RegionServer_Server_Replay_99th_percentile{${Cluster},${Location},${Namespace}}"
                 }
               }
             ],
