@@ -1,6 +1,24 @@
 {
   "category": "CUSTOM",
+  "dashboardFilters": [
+    {
+      "filterType": "RESOURCE_LABEL",
+      "labelKey": "cluster",
+      "templateVariable": "Cluster"
+    },
+    {
+      "filterType": "RESOURCE_LABEL",
+      "labelKey": "location",
+      "templateVariable": "Location"
+    },
+    {
+      "filterType": "RESOURCE_LABEL",
+      "labelKey": "namespace",
+      "templateVariable": "Namespace"
+    }
+  ],
   "displayName": "Kubernetes Cluster Prometheus Overview",
+  "labels": {},
   "mosaicLayout": {
     "columns": 12,
     "tiles": [
@@ -29,7 +47,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "100 - (avg by (instance) (irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)"
+                  "prometheusQuery": "100 - (avg by (instance) (irate(node_cpu_seconds_total{mode=\"idle\",${Cluster},${Location},${Namespace}}[5m])) * 100)"
                 }
               }
             ],
@@ -57,7 +75,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "node_memory_MemTotal_bytes - node_memory_MemFree_bytes"
+                  "prometheusQuery": "node_memory_MemTotal_bytes{${Cluster},${Location},${Namespace}} - node_memory_MemFree_bytes{${Cluster},${Location},${Namespace}}"
                 }
               }
             ],
@@ -80,7 +98,7 @@
               {
                 "tableDisplayOptions": {},
                 "timeSeriesQuery": {
-                  "prometheusQuery": "kube_persistentvolume_capacity_bytes"
+                  "prometheusQuery": "kube_persistentvolume_capacity_bytes{${Cluster},${Location},${Namespace}}"
                 }
               }
             ],
@@ -108,7 +126,7 @@
               }
             ],
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_persistentvolume_status_phase{phase=\"Available\"})"
+              "prometheusQuery": "sum(kube_persistentvolume_status_phase{phase=\"Available\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "PV Unbound"
@@ -133,7 +151,7 @@
               }
             ],
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_persistentvolume_status_phase{phase=\"Pending\"})"
+              "prometheusQuery": "sum(kube_persistentvolume_status_phase{phase=\"Pending\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "PV Pending"
@@ -158,7 +176,7 @@
               }
             ],
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_persistentvolume_status_phase{phase=\"Failed\"})"
+              "prometheusQuery": "sum(kube_persistentvolume_status_phase{phase=\"Failed\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "PV Failed"
@@ -189,7 +207,7 @@
               }
             ],
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_persistentvolume_capacity_bytes)"
+              "prometheusQuery": "sum(kube_persistentvolume_capacity_bytes{${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Persistent Volume Provisioned Capacity (Total)"
@@ -218,7 +236,7 @@
               "sparkChartType": "SPARK_LINE"
             },
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_persistentvolume_status_phase{phase=\"Bound\"})"
+              "prometheusQuery": "sum(kube_persistentvolume_status_phase{phase=\"Bound\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "PV Bound"
@@ -255,7 +273,7 @@
               {
                 "tableDisplayOptions": {},
                 "timeSeriesQuery": {
-                  "prometheusQuery": "sum by (cluster) (kube_node_status_condition{condition=\"Ready\",status=\"false\"})"
+                  "prometheusQuery": "sum by (cluster) (kube_node_status_condition{condition=\"Ready\",status=\"false\",${Cluster},${Location},${Namespace}})"
                 }
               }
             ],
@@ -275,7 +293,7 @@
               {
                 "tableDisplayOptions": {},
                 "timeSeriesQuery": {
-                  "prometheusQuery": "sum by (cluster) (kube_pod_status_scheduled)"
+                  "prometheusQuery": "sum by (cluster) (kube_pod_status_scheduled{${Cluster},${Location},${Namespace}})"
                 }
               }
             ],
@@ -295,7 +313,7 @@
               {
                 "tableDisplayOptions": {},
                 "timeSeriesQuery": {
-                  "prometheusQuery": "sum by (location) (kube_node_status_condition{condition=\"Ready\",status=\"true\"})"
+                  "prometheusQuery": "sum by (location) (kube_node_status_condition{condition=\"Ready\",status=\"true\",${Cluster},${Location},${Namespace}})"
                 }
               }
             ],

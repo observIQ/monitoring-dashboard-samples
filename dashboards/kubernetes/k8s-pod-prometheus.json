@@ -1,6 +1,24 @@
 {
   "category": "CUSTOM",
+  "dashboardFilters": [
+    {
+      "filterType": "RESOURCE_LABEL",
+      "labelKey": "cluster",
+      "templateVariable": "Cluster"
+    },
+    {
+      "filterType": "RESOURCE_LABEL",
+      "labelKey": "location",
+      "templateVariable": "Location"
+    },
+    {
+      "filterType": "RESOURCE_LABEL",
+      "labelKey": "namespace",
+      "templateVariable": "Namespace"
+    }
+  ],
   "displayName": "Kubernetes Pod Prometheus Overview",
+  "labels": {},
   "mosaicLayout": {
     "columns": 12,
     "tiles": [
@@ -10,7 +28,7 @@
           "scorecard": {
             "blankView": {},
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_pod_status_scheduled{condition=\"true\"})"
+              "prometheusQuery": "sum(kube_pod_status_scheduled{condition=\"true\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Scheduled Pods"
@@ -39,7 +57,7 @@
               }
             ],
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_pod_status_phase{phase=\"Pending\"})"
+              "prometheusQuery": "sum(kube_pod_status_phase{phase=\"Pending\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Pending Pods"
@@ -64,7 +82,7 @@
               }
             ],
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_pod_status_phase{phase=\"Failed\"})"
+              "prometheusQuery": "sum(kube_pod_status_phase{phase=\"Failed\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Failed Pods"
@@ -86,7 +104,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "sum(rate(container_cpu_usage_seconds_total{container!~\"POD|\"}[1m])) by (pod)\n"
+                  "prometheusQuery": "sum(rate(container_cpu_usage_seconds_total{container!~\"POD|\",${Cluster},${Location},${Namespace}}[1m])) by (pod)\n"
                 }
               }
             ],
@@ -114,7 +132,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "sum(container_memory_usage_bytes{container!~\"POD|\"}) by (pod)\n"
+                  "prometheusQuery": "sum(container_memory_usage_bytes{container!~\"POD|\",${Cluster},${Location},${Namespace}}) by (pod)\n"
                 }
               }
             ],
@@ -142,7 +160,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "sum(rate(container_network_receive_bytes_total{pod!~\"\"}[1m])) by (pod)\n"
+                  "prometheusQuery": "sum(rate(container_network_receive_bytes_total{pod!~\"\",${Cluster},${Location},${Namespace}}[1m])) by (pod)\n"
                 }
               }
             ],
@@ -170,7 +188,7 @@
                 "plotType": "LINE",
                 "targetAxis": "Y1",
                 "timeSeriesQuery": {
-                  "prometheusQuery": "sum(rate(container_network_transmit_bytes_total{pod!~\"\"}[1m])) by (pod)\n"
+                  "prometheusQuery": "sum(rate(container_network_transmit_bytes_total{pod!~\"\",${Cluster},${Location},${Namespace}}[1m])) by (pod)\n"
                 }
               }
             ],
@@ -191,7 +209,7 @@
           "scorecard": {
             "blankView": {},
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_pod_status_phase{phase=\"Running\"})"
+              "prometheusQuery": "sum(kube_pod_status_phase{phase=\"Running\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Running Pods"
@@ -220,7 +238,7 @@
               }
             ],
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_pod_status_reason{phase=\"Evicted\"})"
+              "prometheusQuery": "sum(kube_pod_status_reason{phase=\"Evicted\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Evicted Pods"
@@ -249,7 +267,7 @@
               }
             ],
             "timeSeriesQuery": {
-              "prometheusQuery": "sum(kube_pod_status_reason{phase=\"Shutdown\"})"
+              "prometheusQuery": "sum(kube_pod_status_reason{phase=\"Shutdown\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Shutdown Pods"
@@ -264,7 +282,7 @@
           "scorecard": {
             "blankView": {},
             "timeSeriesQuery": {
-              "prometheusQuery": "count(kube_statefulset_created)"
+              "prometheusQuery": "count(kube_statefulset_created{${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Statefulsets"
@@ -279,7 +297,7 @@
           "scorecard": {
             "blankView": {},
             "timeSeriesQuery": {
-              "prometheusQuery": "count(kube_deployment_status_condition{status=\"true\", condition=\"Available\"})"
+              "prometheusQuery": "count(kube_deployment_status_condition{status=\"true\", condition=\"Available\",${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Deployments"
@@ -294,7 +312,7 @@
           "scorecard": {
             "blankView": {},
             "timeSeriesQuery": {
-              "prometheusQuery": "count(kube_daemonset_created)"
+              "prometheusQuery": "count(kube_daemonset_created{${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Daemonsets"
@@ -309,7 +327,7 @@
           "scorecard": {
             "blankView": {},
             "timeSeriesQuery": {
-              "prometheusQuery": "count(kube_job_created)"
+              "prometheusQuery": "count(kube_job_created{${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Jobs"
@@ -324,7 +342,7 @@
           "scorecard": {
             "blankView": {},
             "timeSeriesQuery": {
-              "prometheusQuery": "count(kube_namespace_created)"
+              "prometheusQuery": "count(kube_namespace_created{${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Namespaces"
@@ -339,7 +357,7 @@
           "scorecard": {
             "blankView": {},
             "timeSeriesQuery": {
-              "prometheusQuery": "count(kube_replicaset_created)"
+              "prometheusQuery": "count(kube_replicaset_created{${Cluster},${Location},${Namespace}})"
             }
           },
           "title": "Replicasets"
@@ -356,7 +374,7 @@
               {
                 "tableDisplayOptions": {},
                 "timeSeriesQuery": {
-                  "prometheusQuery": "sum by (cluster) (kube_pod_status_scheduled)"
+                  "prometheusQuery": "sum by (cluster) (kube_pod_status_scheduled{${Cluster},${Location},${Namespace}})"
                 }
               }
             ],
@@ -376,7 +394,7 @@
               {
                 "tableDisplayOptions": {},
                 "timeSeriesQuery": {
-                  "prometheusQuery": "sum by (cluster) (kube_pod_status_phase{phase=\"Failed\"})"
+                  "prometheusQuery": "sum by (cluster) (kube_pod_status_phase{phase=\"Failed\",${Cluster},${Location},${Namespace}})"
                 }
               }
             ],
@@ -396,7 +414,7 @@
               {
                 "tableDisplayOptions": {},
                 "timeSeriesQuery": {
-                  "prometheusQuery": "sum by (exported_namespace) (kube_pod_status_scheduled{condition=\"true\"})"
+                  "prometheusQuery": "sum by (exported_namespace) (kube_pod_status_scheduled{condition=\"true\",${Cluster},${Location},${Namespace}})"
                 }
               }
             ],
