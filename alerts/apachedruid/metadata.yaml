@@ -1,0 +1,9 @@
+alert_policy_templates:
+  - id: "high-query-failures"
+    display_name: "Apache Druid - High Query Failures"
+    description: "Alert fires when a high number of query failures occur on an Apache Druid service."
+    version: 1
+  - id: "high-process-utilization"
+    display_name: "Apache Druid - High Query Timeouts"
+    description: "Alert fires when a high number of query timeouts occur on an Apache Druid service."
+    version: 1

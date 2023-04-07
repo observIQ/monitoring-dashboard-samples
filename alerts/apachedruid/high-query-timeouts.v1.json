@@ -1,0 +1,36 @@
+{
+  "name": "projects/otel-agent-dev/alertPolicies/10532684848863692390",
+  "displayName": "Apache Druid - High Query Timeouts",
+  "documentation": {
+    "content": "Alert fires when a high number of query timeouts occur on an Apache Druid service.",
+    "mimeType": "text/markdown"
+  },
+  "userLabels": {},
+  "conditions": [
+    {
+      "name": "projects/otel-agent-dev/alertPolicies/10532684848863692390/conditions/10532684848863692003",
+      "displayName": "Apache Druid - High Query Timeouts",
+      "conditionMonitoringQueryLanguage": {
+        "duration": "0s",
+        "query": "{\n    t_0: fetch generic_node::'workload.googleapis.com/apachedruid.timeout_query_count'\n}\n| group_by [metric.apachedruid_service]\n| window 5m\n| condition val(0) > 30",
+        "trigger": {
+          "count": 1
+        }
+      }
+    }
+  ],
+  "alertStrategy": {
+    "autoClose": "604800s"
+  },
+  "combiner": "OR",
+  "enabled": true,
+  "notificationChannels": [],
+  "creationRecord": {
+    "mutateTime": "2023-04-07T18:48:51.145590811Z",
+    "mutatedBy": "ian.adams@observiq.com"
+  },
+  "mutationRecord": {
+    "mutateTime": "2023-04-07T18:48:51.145590811Z",
+    "mutatedBy": "ian.adams@observiq.com"
+  }
+}

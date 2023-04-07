@@ -1,0 +1,36 @@
+{
+  "name": "projects/otel-agent-dev/alertPolicies/7382510651582088195",
+  "displayName": "Apache Druid - High Query Failures",
+  "documentation": {
+    "content": "Alert fires when a high number of query failures occur on an Apache Druid service.",
+    "mimeType": "text/markdown"
+  },
+  "userLabels": {},
+  "conditions": [
+    {
+      "name": "projects/otel-agent-dev/alertPolicies/7382510651582088195/conditions/6785882572178087724",
+      "displayName": "Apache Druid - High Query Failures",
+      "conditionMonitoringQueryLanguage": {
+        "duration": "0s",
+        "query": "{\n    t_0: fetch generic_node::'workload.googleapis.com/apachedruid.failed_query_count'\n}\n| group_by [metric.apachedruid_service]\n| window 5m\n| condition val(0) > 10",
+        "trigger": {
+          "count": 1
+        }
+      }
+    }
+  ],
+  "alertStrategy": {
+    "autoClose": "604800s"
+  },
+  "combiner": "OR",
+  "enabled": true,
+  "notificationChannels": [],
+  "creationRecord": {
+    "mutateTime": "2023-04-07T15:49:20.797417291Z",
+    "mutatedBy": "ian.adams@observiq.com"
+  },
+  "mutationRecord": {
+    "mutateTime": "2023-04-07T15:55:36.192507206Z",
+    "mutatedBy": "ian.adams@observiq.com"
+  }
+}
