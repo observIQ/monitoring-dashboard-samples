@@ -1,0 +1,10 @@
+sample_dashboards:
+  -
+    category: Apache Druid
+    id: overview
+    display_name: Apache Druid GCE Overview
+    description: |-
+      This dashboard is based on [Google's Ops Agent](https://cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/third-party/druid#monitored-metrics) and has charts displaying Query Count, Successful Query Count, Failed Query Count, Timed-out Query Count, Interrupted Query Count, SQL Query Count, Average SQL Query Response Bytes, and Average SQL Query Response Time from Apache Druid instances.
+    related_integrations:
+      - id: apachedruid
+        platform: GCE
